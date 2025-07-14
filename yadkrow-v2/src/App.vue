@@ -71,7 +71,7 @@ body {
   border: 2px solid white;
   padding: 30px;
   border-radius: 12px;
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 10px white;
 }
 
 .title {
@@ -88,8 +88,13 @@ body {
   padding: 10px;
   font-size: 16px;
   margin-bottom: 20px;
-  color: black;
+  color: white;
   border: none;
+}
+
+.input::placeholder {
+  color: black;
+  opacity: 0.7;
 }
 
 .button {
