@@ -9,7 +9,7 @@
       <button type="submit" class="button">
         Share on LinkedIn
       </button>
-      <p style="font-size: 14px;">Built with dedication by me (Jose Jimenez Artavia) for my final interview at Workday</p>
+      <p style="font-size: 13px;">Built with dedication by me (Jose Jimenez Artavia) for my final interview at Workday</p>
       <p style="font-size: 12px;">Powered by Microsoft Azure Serverless APIs</p>
 
       <p v-if="responseMessage" class="success">{{ responseMessage }}</p>
@@ -91,6 +91,7 @@ body {
   margin-bottom: 20px;
   color: black;
   background-color: white;
+  box-sizing: border-box;
   border: none;
 }
 
