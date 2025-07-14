@@ -10,7 +10,7 @@
         Share on LinkedIn
       </button>
       <p style="font-size: 14px;">Built with dedication by Jose Jimenez Artavia for my final interview at Workday</p>
-      <p style="font-size: 12px;">Powered by Microsoft Azure Serverless APIs</p>""
+      <p style="font-size: 12px;">Powered by Microsoft Azure Serverless APIs</p>
 
       <p v-if="responseMessage" class="success">{{ responseMessage }}</p>
       <p v-if="errorMessage" class="error">{{ errorMessage }}</p>
