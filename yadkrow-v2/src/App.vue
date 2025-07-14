@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <form @submit.prevent="submitPost" class="form">
-      <h1 class="title">Yadkrow v2.0</h1>
+      <h1 class="title">yadkroW v2.0</h1>
 
       <textarea v-model="postContent" placeholder="Type what you would like to share on LinkedIn, here!" required
         class="input"></textarea>
