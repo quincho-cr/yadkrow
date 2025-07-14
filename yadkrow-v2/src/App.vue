@@ -10,7 +10,7 @@
           alt="Workday" 
           class="mx-auto mb-4 w-32"
         />
-        <h2 class="text-2xl text-center font-bold text-[#0875e1]">LinkedIn Post Creator</h2>
+        <h2 class="text-2xl text-center font-bold text-[#0875e1]">Yadkrow</h2>
       </div>
       <textarea 
         v-model="postContent"
