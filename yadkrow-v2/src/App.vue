@@ -2,7 +2,6 @@
   <div class="container">
     <form @submit.prevent="submitPost" class="form">
       <h1 class="title">Yadkrow v2.0</h1>
-      <h3 class="subtitle">Powered by Azure API Management</h3>
 
       <textarea v-model="postContent" placeholder="Type what you would like to share on LinkedIn, here!" required
         class="input"></textarea>
@@ -10,6 +9,8 @@
       <button type="submit" class="button">
         Share on LinkedIn
       </button>
+      <p style="font-size: 14px;">Built with dedication by Jose Jimenez Artavia for my final interview at Workday</p>
+      <p style="font-size: 12px;">Powered by Microsoft Azure Serverless APIs</p>""
 
       <p v-if="responseMessage" class="success">{{ responseMessage }}</p>
       <p v-if="errorMessage" class="error">{{ errorMessage }}</p>
@@ -88,7 +89,8 @@ body {
   padding: 10px;
   font-size: 16px;
   margin-bottom: 20px;
-  color: white;
+  color: black;
+  background-color: white;
   border: none;
 }
 
