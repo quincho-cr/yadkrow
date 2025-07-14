@@ -1,31 +1,18 @@
 <template>
-  <div class="min-h-screen flex items-center justify-center bg-gray-100">
-    <form 
-      @submit.prevent="submitPost" 
-      class="bg-white shadow-xl rounded-lg px-8 pt-6 pb-8 w-full max-w-lg"
-    >
-      <div class="mb-4">
-        <img 
-          src="https://www.workday.com/content/dam/web/en-us/images/global/workday-logo.svg" 
-          alt="Workday" 
-          class="mx-auto mb-4 w-32"
-        />
-        <h2 class="text-2xl text-center font-bold text-[#0875e1]">Yadkrow</h2>
-      </div>
-      <textarea 
-        v-model="postContent"
-        placeholder="Compose your LinkedIn post..."
-        required
-        class="w-full border border-gray-300 rounded-lg p-3 focus:border-[#0875e1] focus:ring-1 focus:ring-[#0875e1] outline-none"
-      ></textarea>
-      <button
-        type="submit"
-        class="w-full mt-4 bg-[#0875e1] hover:bg-[#065cb5] text-white font-semibold py-2 px-4 rounded-lg transition duration-300"
-      >
-        Publish to LinkedIn
+  <div class="container">
+    <form @submit.prevent="submitPost" class="form">
+      <h1 class="title">Yadkrow v2.0</h1>
+      <h3 class="subtitle">Powered by Azure API Management</h3>
+
+      <textarea v-model="postContent" placeholder="Type what you would like to share on LinkedIn, here!" required
+        class="input"></textarea>
+
+      <button type="submit" class="button">
+        Share on LinkedIn
       </button>
-      <p v-if="responseMessage" class="mt-4 text-[#0875e1] font-semibold text-center">{{ responseMessage }}</p>
-      <p v-if="errorMessage" class="mt-4 text-[#f29c1f] font-semibold text-center">{{ errorMessage }}</p>
+
+      <p v-if="responseMessage" class="success">{{ responseMessage }}</p>
+      <p v-if="errorMessage" class="error">{{ errorMessage }}</p>
     </form>
   </div>
 </template>
@@ -48,13 +35,13 @@ const submitPost = async () => {
     })
 
     if (response.status === 201) {
-      responseMessage.value = 'Your post was published successfully!'
+      responseMessage.value = '✅ Post published successfully!'
       postContent.value = ''
     } else {
-      errorMessage.value = 'Oops! Something went wrong.'
+      errorMessage.value = '❌ Something went wrong while publishing.'
     }
   } catch (error) {
-    errorMessage.value = 'An unexpected error occurred.'
+    errorMessage.value = '⚠️ Unexpected error occurred.'
     console.error(error)
   }
 }
@@ -62,7 +49,74 @@ const submitPost = async () => {
 
 <style>
 body {
-  background-color: #f7f9fb;
+  margin: 0;
+  background-color: #0875E1;
   font-family: 'Helvetica Neue', Arial, sans-serif;
+  color: white;
+}
+
+.container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background-color: #0875E1;
+}
+
+.form {
+  width: 100%;
+  max-width: 500px;
+  background-color: #0875E1;
+  border: 2px solid white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+.title {
+  font-size: 28px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.input {
+  width: 100%;
+  height: 120px;
+  border-radius: 8px;
+  padding: 10px;
+  font-size: 16px;
+  margin-bottom: 20px;
+  color: black;
+  border: none;
+}
+
+.button {
+  width: 100%;
+  background-color: #F29C1F;
+  color: white;
+  padding: 14px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.button:hover {
+  background-color: #e08a12;
+}
+
+.success {
+  color: #b2f2bb;
+  margin-top: 16px;
+  text-align: center;
+}
+
+.error {
+  color: #ffc9c9;
+  margin-top: 16px;
+  text-align: center;
 }
 </style>
