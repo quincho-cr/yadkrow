@@ -9,6 +9,7 @@
       <button type="submit" class="button">
         Share on LinkedIn
       </button>
+
       <p style="font-size: 13px;">Built with dedication by me (Jose Jimenez Artavia) for my final interview at Workday</p>
       <p style="font-size: 12px;">Powered by Microsoft Azure Serverless APIs</p>
 
@@ -31,18 +32,18 @@ const submitPost = async () => {
   errorMessage.value = ''
 
   try {
-    const response = await axios.post('<YOUR_APIM_ENDPOINT_URL>', {
-      content: postContent.value
+    const response = await axios.post('https://yadkrow-api.azure-api.net/gateway/postToLinkedIn', {
+      text: postContent.value
     })
 
-    if (response.status === 201) {
-      responseMessage.value = '✅ Post published successfully!'
+    if (response.status === 201 || response.status === 200) {
+      responseMessage.value = '✅ Dont worry you did it well!'
       postContent.value = ''
     } else {
-      errorMessage.value = '❌ Something went wrong while publishing.'
+      errorMessage.value = '❌ Ups! Your post could not complete its journey.'
     }
   } catch (error) {
-    errorMessage.value = '⚠️ Unexpected error occurred.'
+    errorMessage.value = '⚠️ Oh No! This thing is not working, please contact your IT Admin.'
     console.error(error)
   }
 }
