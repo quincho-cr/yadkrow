@@ -37,7 +37,7 @@ const submitPost = async () => {
     })
 
     if (response.status === 201 || response.status === 200) {
-      responseMessage.value = '✅ Dont worry you did it well!'
+      responseMessage.value = '✅ Dont worry you got this!'
       postContent.value = ''
     } else {
       errorMessage.value = '❌ Ups! Your post could not complete its journey.'
