@@ -2,31 +2,31 @@
   <div class="container">
     <form @submit.prevent="submitPost" class="form">
       <h1 class="title">yadkroW v2.0</h1>
-
+      <!--Input Box-->
       <textarea v-model="postContent" placeholder="Type what you would like to share on LinkedIn, here!" required
         class="input"></textarea>
-
+      <!--Share button-->
       <button type="submit" class="button">
         Share on LinkedIn
       </button>
-
+      <!--Attribution and Backend Technology Info References-->
       <p style="font-size: 13px;">Built with dedication by me (Jose Jimenez Artavia) for my final interview at Workday</p>
       <p style="font-size: 12px;">Powered by Microsoft Azure Serverless APIs</p>
-
+      <!--Response Messages-->
       <p v-if="responseMessage" class="success">{{ responseMessage }}</p>
       <p v-if="errorMessage" class="error">{{ errorMessage }}</p>
     </form>
   </div>
 </template>
-
 <script setup>
+//Importing Vue for reactivity and Axios HTTP
 import { ref } from 'vue'
 import axios from 'axios'
-
+//Variables for input and response messages
 const postContent = ref('')
 const responseMessage = ref('')
 const errorMessage = ref('')
-
+//Function to submit the post to Azure Serverless API Front-end API and then to LinkedIn
 const submitPost = async () => {
   responseMessage.value = ''
   errorMessage.value = ''
@@ -49,14 +49,16 @@ const submitPost = async () => {
 }
 </script>
 
+<!--My CSS Styles-->
 <style>
+/*Body Style*/
 body {
   margin: 0;
   background-color: #0875E1;
   font-family: 'Helvetica Neue', Arial, sans-serif;
   color: white;
 }
-
+/*Container Style, center it and set background color*/
 .container {
   min-height: 100vh;
   display: flex;
@@ -65,7 +67,7 @@ body {
   padding: 20px;
   background-color: #0875E1;
 }
-
+/*Form box style*/
 .form {
   width: 100%;
   max-width: 500px;
@@ -75,14 +77,14 @@ body {
   border-radius: 12px;
   box-shadow: 0 0 10px white;
 }
-
+/*Title Style*/
 .title {
   font-size: 28px;
   font-weight: bold;
   text-align: center;
   margin-bottom: 20px;
 }
-
+/*Input box style*/
 .input {
   width: 100%;
   height: 120px;
@@ -95,12 +97,12 @@ body {
   box-sizing: border-box;
   border: none;
 }
-
+/*Placeholder text coloring*/
 .input::placeholder {
   color: black;
   opacity: 0.7;
 }
-
+/*Button Style*/
 .button {
   width: 100%;
   background-color: #F29C1F;
@@ -116,7 +118,7 @@ body {
 .button:hover {
   background-color: #e08a12;
 }
-
+/*Response messages style*/
 .success {
   color: #b2f2bb;
   margin-top: 16px;
