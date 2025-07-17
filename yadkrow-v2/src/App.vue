@@ -32,7 +32,7 @@ const submitPost = async () => {
   errorMessage.value = ''
 
   try {
-    const response = await axios.post('https://yadkrow-api.azure-api.net/gateway/postToLinkedIn', {
+    const response = await axios.post('https://yadkrow-api.azure-api.net/yadkrow/v2/postToLinkedIn', {
       text: postContent.value
     })
 
